@@ -177,7 +177,7 @@
       "array": [
         0,
         0,
-        542.9979281728431,
+        542.1319027690586,
         0,
         0,
         0,
@@ -1001,8 +1001,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 720.27,
-      "height": 170.4
+      "width": 1856,
+      "height": 275.44
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1048,9 +1048,9 @@
     "_enabled": true,
     "alignMode": 1,
     "_target": null,
-    "_alignFlags": 9,
+    "_alignFlags": 41,
     "_left": 32,
-    "_right": 0,
+    "_right": 32,
     "_top": 32,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -1061,7 +1061,7 @@
     "_isAbsBottom": true,
     "_isAbsHorizontalCenter": true,
     "_isAbsVerticalCenter": true,
-    "_originalWidth": 520,
+    "_originalWidth": 1997.89,
     "_originalHeight": 0,
     "_id": "77Y1p4tZVIRbVeief6rWVl"
   },
@@ -1081,10 +1081,10 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_useOriginalSize": false,
-    "_string": "多个Spine的合批使用：\n\n* 需要勾选 Spine 组件上的 Enable Batch\n* 并且多个 Spine 组件相邻",
-    "_N$string": "多个Spine的合批使用：\n\n* 需要勾选 Spine 组件上的 Enable Batch\n* 并且多个 Spine 组件相邻",
+    "_string": "多个Spine的合批使用：\n\n* 需要勾选 Spine 组件上的 Enable Batch\n* 并且多个 Spine 组件相邻\n* 如果渲染大量相同纹理，且结构简单的骨骼动画，开启合批可以降低drawcall，否则请不要开启，cpu消耗会上升",
+    "_N$string": "多个Spine的合批使用：\n\n* 需要勾选 Spine 组件上的 Enable Batch\n* 并且多个 Spine 组件相邻\n* 如果渲染大量相同纹理，且结构简单的骨骼动画，开启合批可以降低drawcall，否则请不要开启，cpu消耗会上升",
     "_fontSize": 40,
-    "_lineHeight": 40,
+    "_lineHeight": 44,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,
@@ -1095,7 +1095,7 @@
     "_N$horizontalAlign": 0,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
-    "_N$overflow": 0,
+    "_N$overflow": 3,
     "_N$cacheMode": 0,
     "_id": "b6/JZTIUdIQ5fT/IwCwZ4A"
   },
