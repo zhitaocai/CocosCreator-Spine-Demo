@@ -1,7 +1,7 @@
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class SpineGuide3SceneCtrl extends cc.Component {
+export default class ChangeSpineAttachementComponent extends cc.Component {
     @property({
         type: sp.Skeleton,
         tooltip: "哥布林",
