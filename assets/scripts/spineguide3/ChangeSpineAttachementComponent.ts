@@ -1,5 +1,8 @@
 const { ccclass, property } = cc._decorator;
 
+/**
+ * 官方Demo示例，Spine局部换装
+ */
 @ccclass
 export default class ChangeSpineAttachementComponent extends cc.Component {
     @property({
