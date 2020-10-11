@@ -1037,7 +1037,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 609,
-      "height": 170.4
+      "height": 204.48
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1119,7 +1119,7 @@
     "_string": "单一Spine的使用：\n\n1. 直接拖进来就可以了\n2. 选择一下 Spine 组件的动画即可",
     "_N$string": "单一Spine的使用：\n\n1. 直接拖进来就可以了\n2. 选择一下 Spine 组件的动画即可",
     "_fontSize": 40,
-    "_lineHeight": 40,
+    "_lineHeight": 48,
     "_enableWrapText": true,
     "_N$file": null,
     "_isSystemFontUsed": true,

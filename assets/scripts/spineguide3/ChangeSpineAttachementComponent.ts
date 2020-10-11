@@ -4,72 +4,46 @@ const { ccclass, property } = cc._decorator;
 export default class ChangeSpineAttachementComponent extends cc.Component {
     @property({
         type: sp.Skeleton,
-        tooltip: "哥布林",
+        tooltip: "显示给用户看的哥布林（用于显示换装后的效果）",
     })
-    goblin: sp.Skeleton = null;
+    goblinForShow: sp.Skeleton = null;
 
-    /**
-     * 皮肤是否已经切换
-     */
-    private isSkinChanged = false;
+    @property({
+        type: sp.Skeleton,
+        tooltip: "背后隐藏的哥布林（用于获取待换装的部位）",
+    })
+    goblinForCopy: sp.Skeleton = null;
 
     /**
      * 需要切换的部位
      *
-     * 这是根据生成的挂点中的描述的出来的数组，详细需要看每个 Spine 的挂点
+     * 这是根据生成的挂点中的Slot的名字的出来的
      */
     private changeSlots = ["left-shoulder", "left-arm", "left-hand"];
 
-    onChangeSpineSkinBtnClick() {
-        this.isSkinChanged = !this.isSkinChanged;
-        this.goblin.setSkin(this.isSkinChanged ? "goblingirl" : "goblin");
+    /**
+     * 是否可以换装
+     */
+    private _enableToChangeAttacment: boolean = false;
 
-        // this.isSkinChanged = !this.isSkinChanged;
-        // for (let i = 0; i < this.changeSlots.length; i++) {
-        //     this.scheduleOnce(() => {
-        //         this._changeSpineSlotAttachement({
-        //             spine: this.goblin,
-        //             slot: this.changeSlots[i],
-        //             slotTargetSkin: this.isSkinChanged ? "goblingirl" : "goblin",
-        //             spineTargetSkin: "goblin",
-        //         });
-        //     });
-        // }
+    onChangeSpineAttachmentBtnClick() {
+        this._enableToChangeAttacment = !this._enableToChangeAttacment;
+        if (this._enableToChangeAttacment) {
+            // 换装
+            for (let i = 0; i < this.changeSlots.length; i++) {
+                // 获取待复制皮肤下，指定部位的插槽的的挂件
+                let goblinSlotForCopy = this.goblinForCopy.findSlot(this.changeSlots[i]);
+                let goblinAttachmentForCopy = goblinSlotForCopy.getAttachment();
+
+                // 找到显示给用户看的Spine的相同部位的插槽
+                // 并替换插槽挂件为刚刚获取到的挂件
+                let goblinSlotForShow = this.goblinForShow.findSlot(this.changeSlots[i]);
+                goblinSlotForShow.setAttachment(goblinAttachmentForCopy);
+            }
+        } else {
+            // 还原
+            this.goblinForShow.setSkin("goblin");
+            this.goblinForShow.setSlotsToSetupPose();
+        }
     }
-
-    // /**
-    //  * 更换 Spine 指定插槽挂件
-    //  *
-    //  * 该插槽的挂件将从 指定的皮肤 换到 目标皮肤 的挂件
-    //  */
-    // private _changeSpineSlotAttachement(param: {
-    //     /**
-    //      * Spine
-    //      */
-    //     spine: sp.Skeleton;
-    //     /**
-    //      * 要更换的插槽名字
-    //      */
-    //     slot: string;
-    //     /**
-    //      * 插槽要更换到的目标皮肤
-    //      */
-    //     slotTargetSkin: string;
-    //     /**
-    //      * Spine 整体显示的皮肤
-    //      */
-    //     spineTargetSkin: string;
-    // }) {
-    //     // 1. 切换 Spine 到需要换装的插槽的皮肤
-    //     this.goblinBack.setSkin(param.slotTargetSkin);
-
-    //     // 2. 获取目标皮肤下，该插槽的挂件
-    //     let slotTargetAttchment = this.goblinBack.findSlot(param.slot).getAttachment();
-
-    //     // 3. 切换 Spine 为目标皮肤
-    //     this.goblinBack.setSkin(param.spineTargetSkin);
-
-    //     // 4. 切换 Spine 指定的插槽挂件为之前获取到的（从而实现局部换装）
-    //     this.goblinBack.findSlot(param.slot).setAttachment(slotTargetAttchment);
-    // }
 }
