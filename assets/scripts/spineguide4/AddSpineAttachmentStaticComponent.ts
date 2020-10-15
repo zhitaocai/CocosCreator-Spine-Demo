@@ -1,7 +1,7 @@
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class AddSpineAttachmentComponent extends cc.Component {
+export default class AddSpineAttachmentStaticComponent extends cc.Component {
     @property({ type: sp.Skeleton })
     spine: sp.Skeleton = null;
 
