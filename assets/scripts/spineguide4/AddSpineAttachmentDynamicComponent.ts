@@ -16,6 +16,10 @@ export default class AddSpineAttachmentDynamicComponent extends cc.Component {
 
     private isShowAttachmentParticles = false;
 
+    start() {
+        this.onChangeMotionStreakVisableBtnClick();
+    }
+
     onChangeMotionStreakVisableBtnClick() {
         this.isShowAttachmentParticles = !this.isShowAttachmentParticles;
         this.isShowAttachmentParticles ? this._generateSomeNodes() : this._destroySomeNodes();
