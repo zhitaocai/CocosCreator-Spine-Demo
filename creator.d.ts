@@ -19608,6 +19608,11 @@ declare namespace sp {
 	它由当前的骨骼动作，slot 颜色，和可见的 slot attachments 组成。<br/>
 	多个 Skeleton 可以使用相同的骨骼数据，其中包括所有的动画，皮肤和 attachments。 */
 	export class Skeleton extends cc.RenderComponent {		
+
+		/**
+		 * 挂点工具类
+		 */
+		attachUtil: sp.AttachUtil;
 		/** !#en The skeletal animation is paused?
 		!#zh 该骨骼动画是否暂停。 */
 		paused: boolean;		
